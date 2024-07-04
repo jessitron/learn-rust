@@ -16,15 +16,15 @@ fn main() {
 
     io::stdin().read_line(&mut guess).expect("Failed to read line");
 
+    let guess: u32 = guess.trim().parse().expect("Ugh, I can't handle anything but a number");
+
     println!("You guessed: {guess}");
 
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let secret_number = rand::thread_rng().gen_range(1..=100); // ok that's amazing that it switched the type here because _later_ we compare it to a u32
 
     println!("The secret number is {secret_number}");
 
-    let as_str = ToString::to_string("{secret_number}");
-
-    let result = match guess.cmp(&as_str) {
+    let result = match guess.cmp(&secret_number) {
         Ordering::Less => "Too small",
         Ordering::Equal => "CORRECT",
         Ordering::Greater => "Too big",
