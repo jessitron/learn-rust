@@ -7,7 +7,7 @@ fn main() {
     println!("******************************\n");
     let secret_number = rand::thread_rng().gen_range(1..=100); // ok that's amazing that it switched the type here because _later_ we compare it to a u32
 
-    println!("The secret number is {secret_number}");
+    //  println!("The secret number is {secret_number}");
 
     loop {
         println!("Please input your guess: ");
